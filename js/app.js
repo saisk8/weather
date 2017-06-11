@@ -3,7 +3,7 @@ var skycons = new Skycons({
     "color": "#000000"
 });
 
-skycons.add("animated-icon", Skycons.CLEAR_DAY);
+skycons.add("icon", Skycons.CLEAR_DAY);
 
 skycons.play();
 
@@ -12,6 +12,14 @@ var lat, long, city, country;
 // API call
 $(document)
     .ready(function() {
+        var skycons = new Skycons({
+            "color": "#000000"
+        });
+        console.log("Success01");
+
+        skycons.add("#icon", Skycons.CLEAR_DAY);
+
+        skycons.play();
 
         // Get the location
 
@@ -66,22 +74,26 @@ $(document)
             // Set the correct Skycon
             var weather = json.weather[0].description;
 
-            if (weather.indexOf("rain") >= 0) {
-                skycons.set("animated-icon", Skycons.RAIN);
-            } else if (weather.indexOf("sunny") >= 0) {
-                skycons.set("animated-icon", Skycons.CLEAR_DAY);
-            } else if (weather.indexOf("clear") >= 0) {
-                if (timeHour >= 7 && timeHour < 20) {
-                    skycons.set("animated-icon", Skycons.CLEAR_DAY);
-                } else {
-                    skycons.set("animated-icon", Skycons.CLEAR_NIGHT);
-                }
-            } else if (weather.indexOf("cloud") >= 0) {
-                skycons.set("animated-icon", Skycons.PARTLY_CLOUDY_DAY);
-            } else if (weather.indexOf("thunderstorm") >= 0) {
-                skycons.set("animated-icon", Skycons.SLEET);
-            } else if (weather.indexOf("snow") >= 0) {
-                skycons.set("animated-icon", Skycons.SNOW);
+            if (weather.indexOf("rain")) {
+                skycons.set("icon", Skycons.RAIN);
+                console.log("Success 1!");
+            } else if (weather.indexOf("sunny")) {
+                skycons.set("icon", Skycons.CLEAR_DAY);
+                console.log("Success 2!");
+            } else if (weather.indexOf("clear")) {
+                skycons.set("icon", Skycons.CLEAR_DAY);
+                console.log("Success 3!");
+            } else if (weather.indexOf("cloud")) {
+                skycons.set("icon", Skycons.PARTLY_CLOUDY_DAY);
+                console.log("Success 4!");
+            } else if (weather.indexOf("thunderstorm")) {
+                skycons.set("icon", Skycons.SLEET);
+                console.log("Success 5!");
+            } else if (weather.indexOf("snow")) {
+                skycons.set("icon", Skycons.SNOW);
+                console.log("Success 6!");
+            } else {
+                console.log("Fail!");
             }
         }
     });
