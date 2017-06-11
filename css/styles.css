@@ -1,0 +1,11 @@
+body {
+    font-family: avenir;
+}
+
+.temperature:hover {
+    cursor: pointer;
+}
+
+#animated-icon {
+    padding-top: 25px;
+}

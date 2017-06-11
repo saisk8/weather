@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Weather App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.js" integrity="sha256-nCLOiEB2E5Mk++5XNR0otwdCPrAteym9WaDVgKhtrE0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="text/javascript" src="js/app.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <header class="col-xs-12 text-center">
+                <h1>Weather App</h1>
+            </header>
+
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="text-center">
+                    <h3><span id='city'>City</span>, <span id='country'>Country</span></h3>
+                    <h3 id='condition'></h3>
+                    <h3 class='temperature'><span class="temp-celsius">°C</span>
+		   <span class="temp-fahrenheit" style='display:none'>°F</span></h3>
+                </div>
+                <div class='text-center'>
+                    <canvas id="animated-icon" width="220" height="220"></canvas>
+                </div>
+                <p class="text-center">By <a href="https://www.freecodecamp.com/somanath08" target="_blank">Sai Somanath Komanduri</a></p>
+            </div>
+        </div>
+    </div>
+</body>
