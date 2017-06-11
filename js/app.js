@@ -77,11 +77,7 @@ $(document)
                     skycons.set("animated-icon", Skycons.CLEAR_NIGHT);
                 }
             } else if (weather.indexOf("cloud") >= 0) {
-                if (timeHour >= 7 && timeHour < 20) {
-                    skycons.set("animated-icon", Skycons.PARTLY_CLOUDY_DAY);
-                } else {
-                    skycons.set("animated-icon", Skycons.PARTLY_CLOUDY_NIGHT);
-                }
+                skycons.set("animated-icon", Skycons.PARTLY_CLOUDY_DAY);
             } else if (weather.indexOf("thunderstorm") >= 0) {
                 skycons.set("animated-icon", Skycons.SLEET);
             } else if (weather.indexOf("snow") >= 0) {
