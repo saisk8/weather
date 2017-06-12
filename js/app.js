@@ -1,45 +1,27 @@
-// Set the Skycons
-var skycons = new Skycons({
-    "color": "#000000"
-});
-
-skycons.add("icon", Skycons.CLEAR_DAY);
-
-skycons.play();
-
-var lat, long, city, country;
-
 // API call
 $(document)
     .ready(function() {
-        var skycons = new Skycons({
-            "color": "#000000"
-        });
-        console.log("Success01");
-
-        skycons.add("#icon", Skycons.CLEAR_DAY);
-
-        skycons.play();
+        var lat, long, city, country;
 
         // Get the location
 
         $.getJSON('http://ipinfo.io', function(data) {
 
-            var coord = data.loc.split(",")
-            console.log(data)
+            var coord = data.loc.split(",");
+            console.log(data);
             city = data.city;
             country = data.region;
             lat = coord[0];
             long = coord[1];
-            console.log(lat)
+            console.log(lat);
 
 
-            var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&APPID=188b68e6b443a5380ce7ee0f0bb49cfc"
-            console.log(url)
+            var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&APPID=188b68e6b443a5380ce7ee0f0bb49cfc";
+            console.log(url);
             $.getJSON(url, function(data) {
                 var rawJson = JSON.stringify(data);
                 var json = JSON.parse(rawJson);
-                console.log(json)
+                console.log(json);
                 setWeather(json); //Update Weather parameters
             });
         });
@@ -70,27 +52,31 @@ $(document)
                         .toggle();
                 });
 
+            function changingImg(x) {
+                document.getElementById("y")
+                    .src = x;
+            }
 
             // Set the correct Skycon
             var weather = json.weather[0].description;
 
-            if (weather.indexOf("rain")) {
-                skycons.set("icon", Skycons.RAIN);
+            if (weather.indexOf("rain") >= 0) {
+                changingImg("http://i.imgur.com/iJjHjLU.png");
                 console.log("Success 1!");
-            } else if (weather.indexOf("sunny")) {
-                skycons.set("icon", Skycons.CLEAR_DAY);
+            } else if (weather.indexOf("sunny") >= 0) {
+                changingImg("http://i.imgur.com/wGL6Qgp.png");
                 console.log("Success 2!");
-            } else if (weather.indexOf("clear")) {
-                skycons.set("icon", Skycons.CLEAR_DAY);
+            } else if (weather.indexOf("clear") >= 0) {
+                changingImg("http://i.imgur.com/wGL6Qgp.png");
                 console.log("Success 3!");
-            } else if (weather.indexOf("cloud")) {
-                skycons.set("icon", Skycons.PARTLY_CLOUDY_DAY);
+            } else if (weather.indexOf("cloud") >= 0) {
+                changingImg("http://i.imgur.com/Watl8Ck.png");
                 console.log("Success 4!");
-            } else if (weather.indexOf("thunderstorm")) {
-                skycons.set("icon", Skycons.SLEET);
+            } else if (weather.indexOf("thunderstorm") >= 0) {
+                changingImg("http://i.imgur.com/ciY2IGD.png");
                 console.log("Success 5!");
-            } else if (weather.indexOf("snow")) {
-                skycons.set("icon", Skycons.SNOW);
+            } else if (weather.indexOf("snow") >= 0) {
+                changingImg("http://i.imgur.com/kJNeuYj.png");
                 console.log("Success 6!");
             } else {
                 console.log("Fail!");
