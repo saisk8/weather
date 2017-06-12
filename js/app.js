@@ -5,7 +5,7 @@ $(document)
 
         // Get the location
 
-        $.getJSON('http://ipinfo.io', function(data) {
+        $.getJSON('https://ipinfo.io', function(data) {
 
             var coord = data.loc.split(",");
             console.log(data);
