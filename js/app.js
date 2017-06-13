@@ -64,7 +64,7 @@ $(document)
             }
 
             // Set the correct Skycon
-            var weather = json.weather[0].description;
+            var weather = json.currently.icon;
 
             if (weather.indexOf("rain") >= 0) {
                 changingImg("http://i.imgur.com/iJjHjLU.png");
