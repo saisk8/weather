@@ -29,12 +29,18 @@ $(document)
 
         function setWeather(json) {
             var condition = json.currently.summary;
+            var windSpeed = json.currently.windSpeed;
+            var windBearing = json.currently.windBearing;
             $("#condition")
                 .html(condition);
             $("#country")
                 .html(country);
             $("#city")
                 .html(city);
+            $("#windSpeed")
+                .html(windSpeed);
+            $("#windBearing")
+                .html(windBearing);
             var temp = [(json.currently.temperature - 273.15)
                 .toFixed(0) + "°C", (1.8 * (json.currently.temperature - 273.15) + 32)
                 .toFixed(0) + "F"
