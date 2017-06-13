@@ -41,7 +41,7 @@ $(document)
                 .html(windSpeed);
             $("#windBearing")
                 .html(windBearing);
-            var temp = [(json.currently.temperature - 32) / 1.8
+            var temp = [((json.currently.temperature - 32) / 1.8)
                 .toFixed(0) + "°C", (json.currently.temperature)
                 .toFixed(0) + "F"
             ];
