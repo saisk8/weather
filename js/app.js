@@ -16,7 +16,8 @@ $(document)
             console.log(lat);
 
 
-            var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&APPID=188b68e6b443a5380ce7ee0f0bb49cfc";
+            var url = "https://api.darksky.net/forecast/bf4bd9f99479ebc92a9707ecd8f2b52a/" +
+                lat + "," + long;
             console.log(url);
             $.getJSON(url, function(data) {
                 var rawJson = JSON.stringify(data);
@@ -27,16 +28,15 @@ $(document)
         });
 
         function setWeather(json) {
-            var condition = json.weather[0].description.substr(0, 1)
-                .toUpperCase() + json.weather[0].description.substr(1);
+            var condition = json.currently.summary;
             $("#condition")
                 .html(condition);
             $("#country")
                 .html(country);
             $("#city")
                 .html(city);
-            var temp = [(json.main.temp - 273.15)
-                .toFixed(0) + "°C", (1.8 * (json.main.temp - 273.15) + 32)
+            var temp = [(json.currently.temperature - 273.15)
+                .toFixed(0) + "°C", (1.8 * (json.currently.temperature - 273.15) + 32)
                 .toFixed(0) + "F"
             ];
             $(".temp-celsius")
