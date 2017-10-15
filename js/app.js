@@ -21,12 +21,13 @@ $(document)
             $.getJSON(url, function(data) {
                 var rawJson = JSON.stringify(data);
                 var json = JSON.parse(rawJson);
-                console.log(json + 1);
+                console.log(json);
                 updateWeather(json);
             });
         }
 
         function updateWeather(json) {
+            console.log(json.weather[0].description);
             var condition = json.weather[0].description;
             country = json.sys.country;
             city = json.name;
