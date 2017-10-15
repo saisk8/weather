@@ -32,7 +32,7 @@ $(document)
             country = json.sys.country;
             city = json.name;
             $("#condition")
-                .html(condition);
+                .innerHTML = condition;
             $("#country")
                 .html(country);
             $("#city")
