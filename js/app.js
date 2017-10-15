@@ -37,8 +37,8 @@ $(document)
                 .text(country);
             $("#city")
                 .text(city);
-            var temp = [(json.main.temp - 273.15)
-                .toFixed(0) + "°C", (1.8 * (json.main.temp - 273.15) + 32)
+            var temp = [(json.main.temp)
+                .toFixed(0) + "°C", (1.8 * (json.main.temp) + 32)
                 .toFixed(0) + "F"
             ];
             $(".temp-celsius")
