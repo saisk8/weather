@@ -18,14 +18,13 @@ $(document)
             var base = "https://fcc-weather-api.glitch.me/api/current?";
             url = base + "lat=" + lat + "&lon=" + long;
             console.log(url);
+            $.getJSON(url, function(data) {
+                var rawJson = JSON.stringify(data);
+                var json = JSON.parse(rawJson);
+                console.log(json + 1);
+                updateWeather(json);
+            });
         }
-
-        $.getJSON(url, function(data) {
-            var rawJson = JSON.stringify(data);
-            var json = JSON.parse(rawJson);
-            console.log(json);
-            updateWeather(json);
-        });
 
         function updateWeather(json) {
             var condition = json.weather[0].description;
