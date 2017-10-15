@@ -32,19 +32,19 @@ $(document)
             country = json.sys.country;
             city = json.name;
             $("#condition")
-                .innerHTML = condition;
+                .text(condition);
             $("#country")
-                .html(country);
+                .text(country);
             $("#city")
-                .html(city);
+                .text(city);
             var temp = [(json.main.temp - 273.15)
                 .toFixed(0) + "°C", (1.8 * (json.main.temp - 273.15) + 32)
                 .toFixed(0) + "F"
             ];
             $(".temp-celsius")
-                .html(temp[0]);
+                .text(temp[0]);
             $(".temp-fahrenheit")
-                .html(temp[1]);
+                .text(temp[1]);
             value = 'c';
             $(".temperature")
                 .click(function(value) {
@@ -54,6 +54,6 @@ $(document)
                         .toggle();
                 });
             document.getElementById("y")
-                .src = json.weather.icon;
+                .src = json.weather[0].icon;
         }
     });
